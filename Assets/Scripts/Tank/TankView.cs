@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class TankView : MonoBehaviour
@@ -12,7 +13,7 @@ public class TankView : MonoBehaviour
     private float _movement;
     private float _rotation;
 
-    
+    public MeshRenderer[] child;
 
     // Start is called before the first frame update
     void Start()
@@ -55,5 +56,13 @@ public class TankView : MonoBehaviour
     public Rigidbody GetRigidBody()
     {
         return rb;
+    }
+
+    public void changeColor(Material _color)
+    {
+        foreach(var i in child)
+        {
+            i.material = _color;
+        }
     }
 }
